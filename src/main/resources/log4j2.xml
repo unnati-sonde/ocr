@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="ERROR">
+    <Properties>
+        <Property name="LOG_HOME">../logs</Property>
+        <Property name="LOG_LEVEL">ERROR</Property>        
+        <Property name="LOG_PATTERN">%d{dd/MM/yyyy HH:mm:ss,SSS} [%-6p] %c{1} %highlight{%level}{FATAL=bg_red, ERROR=red, WARN=yellow, INFO=green, DEBUG=blue} – %msg%n</Property>
+        <Property name="LOG_PATTERN_CONSOLE">%d{dd/MM/yyyy HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Property>
+    </Properties>
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern="${LOG_PATTERN_CONSOLE}"/>
+        </Console>
+        <RollingFile name="fileAppender" fileName="${LOG_HOME}/application.log"
+                     filePattern="${LOG_HOME}/application-%d{MM-dd-yyyy}-%i.log">
+            <PatternLayout>
+                <pattern>${LOG_PATTERN}</pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="5 MB" />
+            </Policies>
+            <DefaultRolloverStrategy min="1" max="500" />
+        </RollingFile>
+    </appenders>
+    <loggers>
+        <root level="${LOG_LEVEL}">
+            <appender-ref ref="Console" />
+            <appender-ref ref="fileAppender" />
+        </root>
+        <logger name="com.infonet" level="ERROR" />
+        <logger name="org.apache" level="ERROR" />
+        <logger name="org.springframework" level="ERROR" />
+    </loggers>
+</configuration>
