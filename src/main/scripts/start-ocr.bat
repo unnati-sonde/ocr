@@ -14,7 +14,7 @@ SET "WAR_FILE=ocr*.war"
 
 REM Introduced loop here to evaluate expression in WAR_FILE so that file name can be promatch-restANY_TEXT.war
 FOR %%F IN (..\bin\%WAR_FILE%) DO (
-    "%JAVA_HOME%/bin/java" -Xms6114m -Xmx6114m -cp "../*" -Dserver.port=%PORT% -Dspring.config.location=../conf/application.properties -Dlogging.config=../conf/log4j2.xml -jar ../bin/ocr.war
+    "%JAVA_HOME%/bin/java" -Xms4096m -Xmx4096m -cp "../*" -Dserver.port=%PORT% -Dspring.config.location=../conf/application.properties -Dlogging.config=../conf/log4j2.xml -jar ../bin/ocr.war
 GOTO :end
 )
 

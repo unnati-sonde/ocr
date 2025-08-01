@@ -18,7 +18,7 @@ public class LicenseFilter implements Filter {
     @PostConstruct
     private void initLicenseDate() {
         Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.MONTH, Calendar.JUNE);
+        cal.set(Calendar.MONTH, Calendar.SEPTEMBER);
         cal.set(Calendar.DAY_OF_MONTH, 30);
         cal.set(Calendar.YEAR, 2025);
         cal.set(Calendar.HOUR_OF_DAY, 23);

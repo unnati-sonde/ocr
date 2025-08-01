@@ -22,6 +22,7 @@
       <lineEnding>unix</lineEnding>
       <excludes>
         <exclude>**/models/**</exclude>
+        <exclude>**/*.p12</exclude>
       </excludes>
     </fileSet>
     <fileSet>
@@ -31,4 +32,11 @@
       <lineEnding>unix</lineEnding>
     </fileSet>
   </fileSets>
+  <files>
+    <file>
+      <source>../ocr/src/main/resources/infonet-cert.p12</source>
+      <outputDirectory>conf</outputDirectory>
+      <filtered>false</filtered>
+    </file>
+  </files>
 </assembly>

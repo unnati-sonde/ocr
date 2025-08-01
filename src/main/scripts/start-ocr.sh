@@ -15,4 +15,4 @@ then
   echo "JAVA_HOME not set. Please edit the file set-env.sh and configure the JAVA_HOME property."
   exit 1
 fi
-"$JAVA_HOME/bin/java" -Xms6114m -Xmx6114m -cp "../*" -Dserver.port="$PORT" -Dspring.config.location="../conf/application.properties" -Dlogging.config=""../conf/log4j2.xml"" -jar ../bin/ocr.war
+"$JAVA_HOME/bin/java" -Xms4096m -Xmx4096m -cp "../*" -Dserver.port="$PORT" -Dspring.config.location="../conf/application.properties" -Dlogging.config=""../conf/log4j2.xml"" -jar ../bin/ocr.war
