@@ -23,7 +23,10 @@ public class AuthFilter implements Filter {
         // Add custom logic here, e.g., logging, authentication, etc.
         String clientId = req.getHeader("CLIENT_ID");
         String clientSecret = req.getHeader("CLIENT_SECRET");
-        if(isValidUser(clientId,clientSecret)) {
+        if (req.getRequestURI().contains("/welcome")) {
+            chain.doFilter(request, response); // Continue the filter chain
+            return;
+        } else if(isValidUser(clientId,clientSecret)) {
             chain.doFilter(request, response); // Continue the filter chain
         } else {
             HttpServletResponse res = (HttpServletResponse) response;

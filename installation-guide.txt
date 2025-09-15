@@ -1,0 +1,48 @@
+Pre-requisite for Infonet OCR application
+1. Java 21
+OS User with admin rights and folder with all required permissions
+
+Installation Process
+
+1) Unzip the file ocr-distribution.zip at a suitable location.
+e.g. /usr/infonet
+
+2) After extration we will find "ocr" folder inside "infonet" folder
+
+It has 3 subfolders in it viz bin, conf, scripts
+
+a) bin folder contains the deployable file
+
+b) conf folder contains application.properties, log4j2.xml file, and infonet-cert.p12 (Customer can change this or neglect this)
+
+c) scripts folder contains the files required to run the application
+
+3) application.properties file contains section to enable / disable SSL on application level
+It is kept disabled by default
+If required use this section to enable it & configure a valid certificate. (Provided infonet-cert.p12 is a dummy certificate that needs to be changed to actual)
+
+4) User log4j2.xml to configure log home and log level
+by default log level is set to ERROR but it can be changed as per requirement.
+Valid values are: TRACE, DEBUG, INFO, WARN, ERROR, FATAL & ALL
+
+5) scripts folder mainly contains 2 type of files
+set-env.bat / set-env.sh
+This file is used to set JAVA_HOME value. Modify this file according to the OS to set the correct JAVA_HOME value
+
+6) Running the application
+Once above steps are done, we can run the application using files start-ocr.bat / start-ocr.sh according to the given OS.
+e.g sh start-ocr.sh (Hit enter)
+
+By default application will on port 7020
+
+we can change this by sending the new port number as argument to the above command.
+e.g sh start-ocr.sh 7722 (Hit enter) 
+In this case port 7722 will be used by the application
+
+start-ocr.sh/bat file is configured to allocation 4GB memory to the application.
+This can be changed according to the need.
+
+7) Verify application
+http://localhost:7722/ocr/welcome
+Accessing this URL in browser should return Hello World string in response
+Check protocol and port before hitting url
